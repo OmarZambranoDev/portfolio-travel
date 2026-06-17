@@ -4,12 +4,19 @@ import { useState } from 'react';
 import { PlannerForm } from '@/components/planner/PlannerForm';
 import { ItineraryDisplay } from '@/components/planner/ItineraryDisplay';
 import { type PlannerFormData, type ItineraryResponse } from '@/types/planner';
+import { useTripsStore } from '@/store/tripsStore';
+import { useToast } from '@OmarZambranoDev/portfolio-ui';
 
 export default function PlanPage() {
   const [itinerary, setItinerary] = useState<ItineraryResponse | null>(null);
   const [streaming, setStreaming] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const saveTrip = useTripsStore((s) => s.saveTrip);
+  const deleteTrip = useTripsStore((s) => s.deleteTrip);
+  const trips = useTripsStore((s) => s.trips);
+  const { toast } = useToast();
 
   const handleSubmit = async (data: PlannerFormData) => {
     setLoading(true);
@@ -57,8 +64,29 @@ export default function PlanPage() {
   };
 
   const handleSave = (itinerary: ItineraryResponse) => {
-    // Zustand + localStorage integration coming in trips page
-    console.log('save', itinerary);
+    const existing = trips.find(
+      (t) =>
+        t.destination === itinerary.destination &&
+        t.duration === itinerary.duration &&
+        t.travelStyle === itinerary.travelStyle &&
+        t.budget === itinerary.budget
+    );
+
+    if (existing) {
+      deleteTrip(existing.id);
+      toast({
+        title: 'Trip removed',
+        description: `Your ${itinerary.destination} itinerary has been removed.`,
+        variant: 'info',
+      });
+    } else {
+      saveTrip(itinerary);
+      toast({
+        title: 'Trip saved',
+        description: `Your ${itinerary.destination} itinerary has been saved.`,
+        variant: 'success',
+      });
+    }
   };
 
   return (
@@ -69,17 +97,17 @@ export default function PlanPage() {
           Describe your preferences and get a personalized itinerary in seconds.
         </p>
         {error && (
-        <div className="p-4 rounded-xl border border-danger/30 bg-danger/5 text-danger text-sm">
-          {error}
-        </div>
-      )}
+          <div className="p-4 rounded-xl border border-danger/30 bg-danger/5 text-danger text-sm">
+            {error}
+          </div>
+        )}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         <div className="md:sticky md:top-24">
           <PlannerForm onSubmit={handleSubmit} loading={loading} />
         </div>
         <div>
-          {itinerary ? (
+          {itinerary && (streaming || itinerary.content) ? (
             <ItineraryDisplay
               itinerary={itinerary}
               streaming={streaming}

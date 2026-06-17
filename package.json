@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.102.0",
-    "@OmarZambranoDev/portfolio-ui": "0.0.48",
+    "@OmarZambranoDev/portfolio-ui": "0.0.50",
     "ai": "^6.0.198",
     "leaflet": "^1.9.4",
     "next": "16.2.7",

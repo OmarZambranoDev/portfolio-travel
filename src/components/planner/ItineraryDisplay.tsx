@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { Button } from '@OmarZambranoDev/portfolio-ui';
 import { Heart } from 'lucide-react';
 import { type ItineraryResponse } from '@/types/planner';
+import { useTripsStore } from '@/store/tripsStore';
 
 interface ItineraryDisplayProps {
   itinerary: ItineraryResponse;
@@ -18,6 +19,15 @@ export function ItineraryDisplay({
 }: ItineraryDisplayProps) {
   const bottomRef = useRef<HTMLDivElement>(null);
 
+  const trips = useTripsStore((s) => s.trips);
+  const isSaved = trips.some(
+    (t) =>
+      t.destination === itinerary.destination &&
+      t.duration === itinerary.duration &&
+      t.travelStyle === itinerary.travelStyle &&
+      t.budget === itinerary.budget
+  );
+
   useEffect(() => {
     if (streaming) {
       bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -27,16 +37,24 @@ export function ItineraryDisplay({
   const lines = itinerary.content.split('\n');
 
   const renderInline = (text: string) => {
-    const parts = text.split(/(\*\*[^*]+\*\*)/g);
-    return parts.map((part, i) =>
-      part.startsWith('**') && part.endsWith('**') ? (
-        <strong key={i} className="font-semibold text-earth-forest">
-          {part.replaceAll('**', '')}
-        </strong>
-      ) : (
-        part
-      )
-    );
+    const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
+    return parts.map((part, i) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return (
+          <strong key={i} className="font-semibold text-earth-forest">
+            {part.replaceAll('**', '')}
+          </strong>
+        );
+      }
+      if (part.startsWith('*') && part.endsWith('*')) {
+        return (
+          <em key={i} className="italic text-secondary">
+            {part.replaceAll('*', '')}
+          </em>
+        );
+      }
+      return part;
+    });
   };
 
   const renderLine = (line: string, index: number) => {
@@ -96,12 +114,12 @@ export function ItineraryDisplay({
         <div className="flex items-center gap-2">
           {!streaming && (
             <Button
-              variant="primary"
+              variant={isSaved ? 'secondary' : 'primary'}
               size="sm"
               onClick={() => onSave(itinerary)}
             >
-              <Heart className="w-4 h-4" />
-              Save Trip
+              <Heart className={`w-4 h-4 ${isSaved ? 'fill-current' : ''}`} />
+              {isSaved ? 'Saved' : 'Save Trip'}
             </Button>
           )}
         </div>

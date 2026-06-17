@@ -22,7 +22,6 @@ interface MapViewProps {
 
 export function MapView({ destination }: MapViewProps) {
   const { lat, lng } = destination.coordinates;
-  console.log('DESTINATION >>>',destination);
 
   return (
     <MapContainer
