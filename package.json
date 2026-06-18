@@ -6,11 +6,20 @@
     "dev": "next dev -p 3005",
     "build": "next build",
     "start": "next start -p 3005",
-    "lint": "eslint"
+    "lint": "eslint",
+    "format": "prettier --write src/**/*.{ts,tsx}",
+    "format:check": "prettier --check src/**/*.{ts,tsx}",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.102.0",
-    "@OmarZambranoDev/portfolio-ui": "0.0.50",
+    "@OmarZambranoDev/portfolio-ui": "0.0.53",
     "ai": "^6.0.198",
     "leaflet": "^1.9.4",
     "next": "16.2.7",
@@ -27,6 +36,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.7",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

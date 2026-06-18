@@ -73,7 +73,7 @@ const destinations: Destination[] = [
     description:
       'Bali blends spiritual culture with natural beauty unlike anywhere else. Ancient Hindu temples emerge from jungle cliffs, terraced rice paddies glow emerald green, and the surf breaks are world-renowned.',
     weatherCity: 'Denpasar',
-    coordinates: { lat: -8.3405, lng: 115.0920 },
+    coordinates: { lat: -8.3405, lng: 115.092 },
     bestMonths: 'Apr–Oct',
     avgDailyCostUSD: 65,
     currency: 'IDR',
@@ -93,7 +93,7 @@ const destinations: Destination[] = [
     description:
       'New York City is the cultural capital of the world. Five boroughs, hundreds of neighborhoods, world-class museums, Broadway, and a food scene that spans every cuisine on earth.',
     weatherCity: 'New York',
-    coordinates: { lat: 40.7128, lng: -74.0060 },
+    coordinates: { lat: 40.7128, lng: -74.006 },
     bestMonths: 'Apr–Jun, Sep–Nov',
     avgDailyCostUSD: 180,
     currency: 'USD',
@@ -120,7 +120,13 @@ const destinations: Destination[] = [
     language: 'English, Afrikaans, Xhosa',
     timezone: 'SAST (UTC+2)',
     unsplashQuery: 'Cape Town South Africa Table Mountain',
-    highlights: ['Table Mountain', 'Boulders Beach', 'Cape Point', 'V&A Waterfront', 'Stellenbosch'],
+    highlights: [
+      'Table Mountain',
+      'Boulders Beach',
+      'Cape Point',
+      'V&A Waterfront',
+      'Stellenbosch',
+    ],
     featured: false,
   },
   {
@@ -129,7 +135,7 @@ const destinations: Destination[] = [
     country: 'Japan',
     region: 'asia',
     categories: ['culture', 'nature'],
-    tagline: 'Japan\'s ancient capital and spiritual heartland',
+    tagline: "Japan's ancient capital and spiritual heartland",
     description:
       'Kyoto preserves the soul of old Japan. Over a thousand temples and shrines, geisha districts, bamboo groves, and some of the finest traditional cuisine in the world.',
     weatherCity: 'Kyoto',
@@ -140,7 +146,13 @@ const destinations: Destination[] = [
     language: 'Japanese',
     timezone: 'JST (UTC+9)',
     unsplashQuery: 'Kyoto Japan temple geisha',
-    highlights: ['Fushimi Inari', 'Arashiyama Bamboo', 'Kinkaku-ji', 'Gion District', 'Nishiki Market'],
+    highlights: [
+      'Fushimi Inari',
+      'Arashiyama Bamboo',
+      'Kinkaku-ji',
+      'Gion District',
+      'Nishiki Market',
+    ],
     featured: false,
   },
   {
@@ -160,7 +172,13 @@ const destinations: Destination[] = [
     language: 'Spanish, Catalan',
     timezone: 'CET (UTC+1)',
     unsplashQuery: 'Barcelona Spain Sagrada Familia',
-    highlights: ['Sagrada Família', 'Park Güell', 'La Boqueria', 'Gothic Quarter', 'Barceloneta Beach'],
+    highlights: [
+      'Sagrada Família',
+      'Park Güell',
+      'La Boqueria',
+      'Gothic Quarter',
+      'Barceloneta Beach',
+    ],
     featured: true,
   },
   {
@@ -173,7 +191,7 @@ const destinations: Destination[] = [
     description:
       'Machu Picchu is one of the most awe-inspiring places on earth. Perched on a ridge above the Sacred Valley, this 15th-century Inca citadel draws hikers, historians, and dreamers from every corner of the world.',
     weatherCity: 'Cusco',
-    coordinates: { lat: -13.1631, lng: -72.5450 },
+    coordinates: { lat: -13.1631, lng: -72.545 },
     bestMonths: 'May–Sep',
     avgDailyCostUSD: 75,
     currency: 'PEN',
@@ -211,7 +229,7 @@ const destinations: Destination[] = [
     categories: ['adventure', 'nature'],
     tagline: 'Fjords, glaciers, and Middle-earth landscapes',
     description:
-      'New Zealand\'s South Island is the adventure capital of the world. Milford Sound, the Southern Alps, Franz Josef Glacier, and Queenstown offer some of the most dramatic scenery and outdoor activities on the planet.',
+      "New Zealand's South Island is the adventure capital of the world. Milford Sound, the Southern Alps, Franz Josef Glacier, and Queenstown offer some of the most dramatic scenery and outdoor activities on the planet.",
     weatherCity: 'Queenstown',
     coordinates: { lat: -45.0312, lng: 168.6626 },
     bestMonths: 'Dec–Feb, Jun–Aug',
@@ -291,9 +309,9 @@ const destinations: Destination[] = [
     categories: ['beach', 'culture'],
     tagline: 'Clifftop villages, turquoise water, and limoncello',
     description:
-      'The Amalfi Coast is one of Italy\'s most breathtaking stretches of coastline. Pastel-colored villages cling to steep cliffs above impossibly blue water, connected by winding roads and hiking trails.',
+      "The Amalfi Coast is one of Italy's most breathtaking stretches of coastline. Pastel-colored villages cling to steep cliffs above impossibly blue water, connected by winding roads and hiking trails.",
     weatherCity: 'Salerno',
-    coordinates: { lat: 40.6340, lng: 14.6027 },
+    coordinates: { lat: 40.634, lng: 14.6027 },
     bestMonths: 'May–Jun, Sep–Oct',
     avgDailyCostUSD: 165,
     currency: 'EUR',

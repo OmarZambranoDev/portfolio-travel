@@ -2,13 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { MapPin, Bot, Heart, BarChart2, Plane } from 'lucide-react';
+import { MapPin, Bot, Heart, Plane } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: 'Destinations', href: '/destinations', icon: MapPin },
   { label: 'Plan', href: '/plan', icon: Bot },
   { label: 'Trips', href: '/trips', icon: Heart },
-  { label: 'Dashboard', href: '/dashboard', icon: BarChart2 },
 ];
 
 export function Navbar() {
