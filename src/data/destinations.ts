@@ -79,7 +79,7 @@ const destinations: Destination[] = [
     currency: 'IDR',
     language: 'Balinese, Indonesian',
     timezone: 'WITA (UTC+8)',
-    unsplashQuery: 'Bali Indonesia temple rice terrace',
+    unsplashQuery: 'Bali Indonesia rice terrace',
     highlights: ['Ubud', 'Tanah Lot', 'Seminyak Beach', 'Mount Batur', 'Tegallalang'],
     featured: true,
   },
@@ -317,7 +317,7 @@ const destinations: Destination[] = [
     currency: 'EUR',
     language: 'Italian',
     timezone: 'CET (UTC+1)',
-    unsplashQuery: 'Amalfi Coast Italy village cliff sea',
+    unsplashQuery: 'Amalfi Coast Italy coastline',
     highlights: ['Positano', 'Ravello', 'Path of the Gods', 'Capri', 'Atrani'],
     featured: false,
   },
@@ -355,3 +355,8 @@ export const getDestinationsByRegion = (region: Region): Destination[] =>
 
 export const getDestinationsByCategory = (category: Category): Destination[] =>
   destinations.filter((d) => d.categories.includes(category));
+
+import destinationImages from './destinationImages.json';
+
+export const getDestinationImage = (slug: string): string | null =>
+  (destinationImages as Record<string, string>)[slug] ?? null;

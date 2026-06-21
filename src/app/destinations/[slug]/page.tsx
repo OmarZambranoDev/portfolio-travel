@@ -6,6 +6,8 @@ import { getDestinationBySlug } from '@/data/destinations';
 import destinations from '@/data/destinations';
 import { WeatherCard } from '@/components/common/WeatherCard';
 import { MapViewDynamic } from '@/components/common/MapViewDynamic';
+import Image from 'next/image';
+import { getDestinationImage } from '@/data/destinations';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -33,6 +35,19 @@ export default async function DestinationPage({ params }: Props) {
 
   return (
     <div className="flex flex-col gap-8">
+      {/* Hero image */}
+      {getDestinationImage(destination.slug) && (
+        <div className="relative w-screen left-1/2 right-1/2 ml-[50vw] mr-[50vw] md:w-full md:left-0 md:right-0 md:ml-0 md:mr-0 aspect-21/9 overflow-hidden bg-earth-stone/20 md:rounded-2xl">
+          <Image
+            src={getDestinationImage(destination.slug)!}
+            alt={destination.name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 1024px"
+            priority
+          />
+        </div>
+      )}
       {/* Header */}
       <div className="flex flex-col gap-4">
         <div className="flex flex-wrap gap-2">
@@ -45,13 +60,9 @@ export default async function DestinationPage({ params }: Props) {
             {destination.region}
           </Chip>
         </div>
-        <h1 className="text-3xl md:text-4xl font-bold text-earth-forest">
-          {destination.name}
-        </h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-earth-forest">{destination.name}</h1>
         <p className="text-secondary text-lg">{destination.country}</p>
-        <p className="text-earth-forest/80 max-w-2xl leading-relaxed">
-          {destination.description}
-        </p>
+        <p className="text-earth-forest/80 max-w-2xl leading-relaxed">{destination.description}</p>
       </div>
 
       {/* Quick stats */}
@@ -59,20 +70,14 @@ export default async function DestinationPage({ params }: Props) {
         <div className="flex flex-col gap-1 p-4 bg-white rounded-xl border border-earth-stone/30">
           <div className="flex items-center gap-2 text-secondary">
             <Calendar className="w-4 h-4" />
-            <span className="text-xs font-medium uppercase tracking-wide">
-              Best Time
-            </span>
+            <span className="text-xs font-medium uppercase tracking-wide">Best Time</span>
           </div>
-          <p className="text-sm font-semibold text-earth-forest">
-            {destination.bestMonths}
-          </p>
+          <p className="text-sm font-semibold text-earth-forest">{destination.bestMonths}</p>
         </div>
         <div className="flex flex-col gap-1 p-4 bg-white rounded-xl border border-earth-stone/30">
           <div className="flex items-center gap-2 text-secondary">
             <DollarSign className="w-4 h-4" />
-            <span className="text-xs font-medium uppercase tracking-wide">
-              Daily Cost
-            </span>
+            <span className="text-xs font-medium uppercase tracking-wide">Daily Cost</span>
           </div>
           <p className="text-sm font-semibold text-earth-forest">
             ~${destination.avgDailyCostUSD}/day
@@ -81,24 +86,16 @@ export default async function DestinationPage({ params }: Props) {
         <div className="flex flex-col gap-1 p-4 bg-white rounded-xl border border-earth-stone/30">
           <div className="flex items-center gap-2 text-secondary">
             <Globe className="w-4 h-4" />
-            <span className="text-xs font-medium uppercase tracking-wide">
-              Language
-            </span>
+            <span className="text-xs font-medium uppercase tracking-wide">Language</span>
           </div>
-          <p className="text-sm font-semibold text-earth-forest">
-            {destination.language}
-          </p>
+          <p className="text-sm font-semibold text-earth-forest">{destination.language}</p>
         </div>
         <div className="flex flex-col gap-1 p-4 bg-white rounded-xl border border-earth-stone/30">
           <div className="flex items-center gap-2 text-secondary">
             <Clock className="w-4 h-4" />
-            <span className="text-xs font-medium uppercase tracking-wide">
-              Timezone
-            </span>
+            <span className="text-xs font-medium uppercase tracking-wide">Timezone</span>
           </div>
-          <p className="text-sm font-semibold text-earth-forest">
-            {destination.timezone}
-          </p>
+          <p className="text-sm font-semibold text-earth-forest">{destination.timezone}</p>
         </div>
       </div>
 

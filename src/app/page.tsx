@@ -9,6 +9,8 @@ import {
   Chip,
 } from '@OmarZambranoDev/portfolio-ui';
 import { featuredDestinations } from '@/data/destinations';
+import Image from 'next/image';
+import { getDestinationImage } from '@/data/destinations';
 
 const FEATURES = [
   {
@@ -87,10 +89,22 @@ export default function HomePage() {
             </Button>
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {featuredDestinations.map((destination) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredDestinations.map((destination, index) => (
             <Link key={destination.slug} href={`/destinations/${destination.slug}`}>
               <Card variant="elevated" clickable>
+                <div className="relative w-full aspect-4/3 overflow-hidden bg-earth-stone/20">
+                  {getDestinationImage(destination.slug) && (
+                    <Image
+                      src={getDestinationImage(destination.slug)!}
+                      alt={destination.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      priority={index === 0}
+                    />
+                  )}
+                </div>
                 <CardContent className="flex flex-col gap-2 p-6">
                   <div className="flex items-center gap-2 flex-wrap">
                     {destination.categories.map((cat) => (
