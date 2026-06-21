@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start -p 3005",
     "lint": "eslint",
-    "format": "prettier --write src/**/*.{ts,tsx}",
-    "format:check": "prettier --check src/**/*.{ts,tsx}",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,json}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css,json}\"",
     "prepare": "husky",
     "fetch-images": "tsx scripts/fetch-images.ts"
   },

@@ -48,9 +48,7 @@ export default function PlanPage() {
         const { done, value } = await reader.read();
         if (done) break;
         const chunk = decoder.decode(value, { stream: true });
-        setItinerary((prev) =>
-          prev ? { ...prev, content: prev.content + chunk } : null
-        );
+        setItinerary((prev) => (prev ? { ...prev, content: prev.content + chunk } : null));
       }
     } catch (err) {
       const message =
@@ -108,20 +106,14 @@ export default function PlanPage() {
         </div>
         <div>
           {itinerary && (streaming || itinerary.content) ? (
-            <ItineraryDisplay
-              itinerary={itinerary}
-              streaming={streaming}
-              onSave={handleSave}
-            />
+            <ItineraryDisplay itinerary={itinerary} streaming={streaming} onSave={handleSave} />
           ) : (
             <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
                 <span className="text-3xl">✈️</span>
               </div>
               <div>
-                <p className="font-semibold text-earth-forest">
-                  Your itinerary will appear here
-                </p>
+                <p className="font-semibold text-earth-forest">Your itinerary will appear here</p>
                 <p className="text-sm text-secondary mt-1">
                   Fill in the form and click Generate to get started.
                 </p>

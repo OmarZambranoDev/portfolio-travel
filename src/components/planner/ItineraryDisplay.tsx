@@ -12,11 +12,7 @@ interface ItineraryDisplayProps {
   onSave: (itinerary: ItineraryResponse) => void;
 }
 
-export function ItineraryDisplay({
-  itinerary,
-  streaming,
-  onSave,
-}: ItineraryDisplayProps) {
+export function ItineraryDisplay({ itinerary, streaming, onSave }: ItineraryDisplayProps) {
   const bottomRef = useRef<HTMLDivElement>(null);
 
   const trips = useTripsStore((s) => s.trips);
@@ -104,9 +100,7 @@ export function ItineraryDisplay({
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-bold text-earth-forest">
-            Your Itinerary
-          </h2>
+          <h2 className="text-xl font-bold text-earth-forest">Your Itinerary</h2>
           <p className="text-sm text-secondary">
             {itinerary.duration} days · {itinerary.travelStyle} · {itinerary.budget}
           </p>

@@ -30,7 +30,9 @@ export default function TripDetailPage({ params }: Props) {
     return (
       <div className="flex flex-col gap-6">
         <Link href="/trips">
-          <Button variant="outline" size="sm">← Back</Button>
+          <Button variant="outline" size="sm">
+            ← Back
+          </Button>
         </Link>
         <div className="flex items-center justify-center py-16">
           <EmptyState
@@ -115,7 +117,9 @@ export default function TripDetailPage({ params }: Props) {
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
         <Link href="/trips">
-          <Button variant="outline" size="sm">← Back</Button>
+          <Button variant="outline" size="sm">
+            ← Back
+          </Button>
         </Link>
         <Button variant="outline" size="sm" onClick={handleDelete}>
           <Trash2 className="w-3.5 h-3.5" />
@@ -129,7 +133,9 @@ export default function TripDetailPage({ params }: Props) {
           {trip.destination}
         </h1>
         <div className="flex flex-wrap gap-2">
-          <Chip variant="accent" size="sm">{trip.travelStyle}</Chip>
+          <Chip variant="accent" size="sm">
+            {trip.travelStyle}
+          </Chip>
           <Chip variant="default" size="sm">
             <Clock className="w-3 h-3" />
             {trip.duration} {trip.duration === 1 ? 'day' : 'days'}

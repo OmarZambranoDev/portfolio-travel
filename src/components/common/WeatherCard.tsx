@@ -12,9 +12,7 @@ interface WeatherCardProps {
 }
 
 export function WeatherCard({ city, useMock = false }: WeatherCardProps) {
-  const [weather, setWeather] = useState<WeatherData | null>(
-    useMock ? mockWeatherData : null
-  );
+  const [weather, setWeather] = useState<WeatherData | null>(useMock ? mockWeatherData : null);
   const [loading, setLoading] = useState(!useMock);
   const [error, setError] = useState<string | null>(null);
 
@@ -62,34 +60,14 @@ export function WeatherCard({ city, useMock = false }: WeatherCardProps) {
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-2">
         <CloudSun className="w-5 h-5 text-accent" />
-        <h3 className="text-lg font-semibold text-earth-forest">
-          Current Weather
-        </h3>
-        <span className="text-sm text-secondary capitalize">
-          — {weather.current.description}
-        </span>
+        <h3 className="text-lg font-semibold text-earth-forest">Current Weather</h3>
+        <span className="text-sm text-secondary capitalize">— {weather.current.description}</span>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <StatCard
-          icon={Thermometer}
-          value={`${weather.current.temp}°F`}
-          label="Temperature"
-        />
-        <StatCard
-          icon={Thermometer}
-          value={`${weather.current.feelsLike}°F`}
-          label="Feels Like"
-        />
-        <StatCard
-          icon={Droplets}
-          value={`${weather.current.humidity}%`}
-          label="Humidity"
-        />
-        <StatCard
-          icon={Wind}
-          value={`${weather.current.windSpeed} mph`}
-          label="Wind Speed"
-        />
+        <StatCard icon={Thermometer} value={`${weather.current.temp}°F`} label="Temperature" />
+        <StatCard icon={Thermometer} value={`${weather.current.feelsLike}°F`} label="Feels Like" />
+        <StatCard icon={Droplets} value={`${weather.current.humidity}%`} label="Humidity" />
+        <StatCard icon={Wind} value={`${weather.current.windSpeed} mph`} label="Wind Speed" />
       </div>
     </div>
   );

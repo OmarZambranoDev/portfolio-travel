@@ -34,18 +34,14 @@ export default function TripsPage() {
             icon={Heart}
             action={{
               label: 'Plan a trip',
-              onClick: () => window.location.href = '/plan',
+              onClick: () => (window.location.href = '/plan'),
             }}
           />
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {trips.map((trip) => (
-            <TripCard
-              key={trip.id}
-              trip={trip}
-              onDelete={deleteTrip}
-            />
+            <TripCard key={trip.id} trip={trip} onDelete={deleteTrip} />
           ))}
         </div>
       )}

@@ -42,9 +42,7 @@ export function DestinationFilters({
               key={value}
               variant={selectedCategory === value ? 'selected' : 'default'}
               clickable
-              onClick={() =>
-                onCategoryChange(selectedCategory === value ? null : value)
-              }
+              onClick={() => onCategoryChange(selectedCategory === value ? null : value)}
             >
               {label}
             </Chip>
@@ -59,9 +57,7 @@ export function DestinationFilters({
               key={value}
               variant={selectedRegion === value ? 'selected' : 'default'}
               clickable
-              onClick={() =>
-                onRegionChange(selectedRegion === value ? null : value)
-              }
+              onClick={() => onRegionChange(selectedRegion === value ? null : value)}
             >
               {label}
             </Chip>

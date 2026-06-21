@@ -1,7 +1,19 @@
 'use client';
 
 import { useState } from 'react';
-import { Card, CardContent, CardFooter, Button, Chip, Modal, ModalContent, ModalHeader, ModalTitle, ModalBody, ModalDescription } from '@OmarZambranoDev/portfolio-ui';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  Button,
+  Chip,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalTitle,
+  ModalBody,
+  ModalDescription,
+} from '@OmarZambranoDev/portfolio-ui';
 import { Trash2, MapPin, Clock, Wallet, Sparkles, Calendar } from 'lucide-react';
 import { type SavedTrip } from '@/store/tripsStore';
 import { useIsMobile } from '@/hooks/useIsMobile';
@@ -96,10 +108,10 @@ export function TripCard({ trip, onDelete }: TripCardProps) {
       <Card variant="elevated" clickable onClick={handleClick}>
         <CardContent className="flex flex-col gap-3 p-5">
           <div className="flex items-start justify-between gap-2">
-            <h3 className="text-lg font-bold text-earth-forest">
-              {trip.destination}
-            </h3>
-            <Chip variant="accent" size="sm">{trip.travelStyle}</Chip>
+            <h3 className="text-lg font-bold text-earth-forest">{trip.destination}</h3>
+            <Chip variant="accent" size="sm">
+              {trip.travelStyle}
+            </Chip>
           </div>
           <div className="flex flex-wrap gap-3 text-sm text-secondary">
             <span className="flex items-center gap-1">
@@ -149,11 +161,15 @@ export function TripCard({ trip, onDelete }: TripCardProps) {
               Saved on {new Date(trip.savedAt).toLocaleDateString()}
             </ModalDescription>
             <div className="flex flex-wrap gap-2 mt-2">
-              <Chip variant="accent" size="sm">{trip.travelStyle}</Chip>
+              <Chip variant="accent" size="sm">
+                {trip.travelStyle}
+              </Chip>
               <Chip variant="default" size="sm">
                 {trip.duration} {trip.duration === 1 ? 'day' : 'days'}
               </Chip>
-              <Chip variant="default" size="sm">{trip.budget}</Chip>
+              <Chip variant="default" size="sm">
+                {trip.budget}
+              </Chip>
             </div>
           </ModalHeader>
           <ModalBody className="overflow-y-auto max-h-[60vh]">

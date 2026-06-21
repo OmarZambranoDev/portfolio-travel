@@ -86,10 +86,7 @@ export function PlannerForm({ onSubmit, loading }: PlannerFormProps) {
         {/* Duration */}
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="duration">Duration</Label>
-          <Select
-            value={String(duration)}
-            onValueChange={(val) => setDuration(Number(val))}
-          >
+          <Select value={String(duration)} onValueChange={(val) => setDuration(Number(val))}>
             <SelectTrigger id="duration">
               <SelectValue placeholder="Select duration" />
             </SelectTrigger>

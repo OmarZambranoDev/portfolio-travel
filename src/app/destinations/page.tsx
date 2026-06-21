@@ -12,9 +12,7 @@ export default function DestinationsPage() {
     <div className="flex flex-col gap-8">
       <div>
         <h1 className="text-3xl font-bold text-earth-forest">Destinations</h1>
-        <p className="text-secondary mt-1">
-          {destinations.length} destinations across 5 regions
-        </p>
+        <p className="text-secondary mt-1">{destinations.length} destinations across 5 regions</p>
       </div>
       <DestinationGrid destinations={destinations} />
     </div>
