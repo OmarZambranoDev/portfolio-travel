@@ -2,7 +2,10 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { MapPin, Bot, Heart, Plane } from 'lucide-react';
+import { MapPin, Bot, Heart, Plane, Code, Home } from 'lucide-react';
+
+const HOST_URL = process.env.NEXT_PUBLIC_HOST_URL || 'http://localhost:3000';
+const GITHUB_URL = process.env.NEXT_PUBLIC_GITHUB_URL || '';
 
 const NAV_LINKS = [
   { label: 'Destinations', href: '/destinations', icon: MapPin },
@@ -38,6 +41,24 @@ export function Navbar() {
               </Link>
             );
           })}
+          <div className="border-l border-earth-stone/30 flex items-center gap-1">
+            <a
+              href={HOST_URL}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-earth-moss hover:bg-muted/10 hover:text-primary transition-colors"
+            >
+              <Home className="w-4 h-4" />
+              Portfolio
+            </a>
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-earth-moss hover:bg-muted/10 hover:text-primary transition-colors"
+            >
+              <Code className="w-4 h-4" />
+              GitHub
+            </a>
+          </div>
         </nav>
       </div>
     </header>

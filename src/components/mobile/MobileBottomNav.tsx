@@ -2,12 +2,15 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { MapPin, Bot, Heart } from 'lucide-react';
+import { MapPin, Bot, Heart, User, Home } from 'lucide-react';
+
+const HOST_URL = process.env.NEXT_PUBLIC_HOST_URL || 'http://localhost:3000';
 
 const NAV_LINKS = [
   { label: 'Destinations', href: '/destinations', icon: MapPin },
   { label: 'Plan', href: '/plan', icon: Bot },
   { label: 'Trips', href: '/trips', icon: Heart },
+  { label: 'Profile', href: '/profile', icon: User },
 ];
 
 export function MobileBottomNav() {
@@ -31,6 +34,13 @@ export function MobileBottomNav() {
             </Link>
           );
         })}
+        <a
+          href={HOST_URL}
+          className="flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-colors text-earth-moss"
+        >
+          <Home className="w-5 h-5" />
+          <span className="text-xs font-medium">Home</span>
+        </a>
       </div>
     </nav>
   );
