@@ -30,7 +30,7 @@ export function Navbar() {
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   isActive
                     ? 'bg-primary/10 text-primary'
-                    : 'text-secondary hover:bg-muted/10 hover:text-primary'
+                    : 'text-earth-moss hover:bg-muted/10 hover:text-primary'
                 }`}
               >
                 <Icon className="w-4 h-4" />

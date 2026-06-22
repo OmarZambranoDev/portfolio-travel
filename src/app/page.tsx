@@ -69,11 +69,13 @@ export default function HomePage() {
         {FEATURES.map(({ icon: Icon, title, description }) => (
           <Card key={title} variant="elevated">
             <CardContent className="flex flex-col gap-3 p-6">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Icon className="w-5 h-5 text-primary" />
-              </div>
-              <CardTitle>{title}</CardTitle>
-              <CardDescription>{description}</CardDescription>
+              <CardTitle className="flex flex-row items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-primary" />
+                </div>
+                {title}
+              </CardTitle>
+              <CardDescription className="text-earth-moss">{description}</CardDescription>
             </CardContent>
           </Card>
         ))}
@@ -114,8 +116,10 @@ export default function HomePage() {
                     ))}
                   </div>
                   <CardTitle>{destination.name}</CardTitle>
-                  <CardDescription>{destination.country}</CardDescription>
-                  <p className="text-sm text-secondary mt-1">{destination.tagline}</p>
+                  <CardDescription className="text-earth-moss">
+                    {destination.country}
+                  </CardDescription>
+                  <p className="text-sm text-earth-moss mt-1">{destination.tagline}</p>
                 </CardContent>
               </Card>
             </Link>

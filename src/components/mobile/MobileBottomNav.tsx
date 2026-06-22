@@ -23,7 +23,7 @@ export function MobileBottomNav() {
               key={href}
               href={href}
               className={`flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-colors ${
-                isActive ? 'text-primary' : 'text-secondary'
+                isActive ? 'text-primary' : 'text-earth-moss'
               }`}
             >
               <Icon className="w-5 h-5" />

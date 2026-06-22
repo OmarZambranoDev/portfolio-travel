@@ -76,12 +76,14 @@ export function DestinationGrid({ destinations }: DestinationGridProps) {
                   </div>
                   <div>
                     <CardTitle>{destination.name}</CardTitle>
-                    <CardDescription>{destination.country}</CardDescription>
+                    <CardDescription className="text-primary">
+                      {destination.country}
+                    </CardDescription>
                   </div>
-                  <p className="text-sm text-secondary line-clamp-2">{destination.tagline}</p>
+                  <p className="text-sm text-earth-moss line-clamp-2">{destination.tagline}</p>
                   <div className="flex items-center justify-between text-xs text-secondary pt-1 border-t border-earth-stone/30">
-                    <span>Best: {destination.bestMonths}</span>
-                    <span>~${destination.avgDailyCostUSD}/day</span>
+                    <span className="text-earth-moss">Best: {destination.bestMonths}</span>
+                    <span className="text-earth-moss">~${destination.avgDailyCostUSD}/day</span>
                   </div>
                 </CardContent>
               </Card>
