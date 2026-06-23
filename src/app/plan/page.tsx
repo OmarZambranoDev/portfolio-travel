@@ -101,14 +101,17 @@ export default function PlanPage() {
         )}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-        <div className="md:sticky md:top-24">
+        <div className="md:sticky md:top-24" data-testid="planner-form">
           <PlannerForm onSubmit={handleSubmit} loading={loading} />
         </div>
         <div>
           {itinerary && (streaming || itinerary.content) ? (
             <ItineraryDisplay itinerary={itinerary} streaming={streaming} onSave={handleSave} />
           ) : (
-            <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
+            <div
+              className="flex flex-col items-center justify-center gap-4 py-16 text-center"
+              data-testid="planner-empty"
+            >
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
                 <span className="text-3xl">✈️</span>
               </div>

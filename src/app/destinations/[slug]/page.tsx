@@ -36,7 +36,7 @@ export default async function DestinationPage({ params }: Props) {
   const imageUrl = getDestinationImage(destination.slug);
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8" data-testid="destination-detail">
       {/* Hero image */}
       {imageUrl && (
         <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] md:w-full md:left-0 md:right-0 md:ml-0 md:mr-0 aspect-[21/9] overflow-hidden bg-earth-stone/20 md:rounded-2xl">

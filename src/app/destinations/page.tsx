@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function DestinationsPage() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8" data-testid="destinations-page">
       <div>
         <h1 className="text-3xl font-bold text-earth-forest">Destinations</h1>
         <p className="text-secondary mt-1">{destinations.length} destinations across 5 regions</p>

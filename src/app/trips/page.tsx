@@ -11,7 +11,7 @@ export default function TripsPage() {
   const deleteTrip = useTripsStore((s) => s.deleteTrip);
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8" data-testid="trips-page">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-earth-forest">Saved Trips</h1>

@@ -12,7 +12,7 @@
     "prepare": "husky",
     "fetch-images": "tsx scripts/fetch-images.ts",
     "test": "vitest run",
-"test:watch": "vitest"
+    "test:watch": "vitest"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
@@ -32,6 +32,7 @@
     "zustand": "^5.0.14"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.0",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",

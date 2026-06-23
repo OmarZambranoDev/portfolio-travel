@@ -65,7 +65,7 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section data-testid="features-section" className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {FEATURES.map(({ icon: Icon, title, description }) => (
           <Card key={title} variant="elevated">
             <CardContent className="flex flex-col gap-3 p-6">
@@ -82,7 +82,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Destinations */}
-      <section className="flex flex-col gap-6">
+      <section data-testid="featured-destinations" className="flex flex-col gap-6">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold text-earth-forest">Featured Destinations</h2>
           <Link href="/destinations">
