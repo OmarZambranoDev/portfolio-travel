@@ -76,6 +76,11 @@ jobs:
       - run: npm ci
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm run build
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
       - run: npx playwright@1.61.0 install --with-deps chromium
       - run: npx playwright@1.61.0 test --config=playwright.config.ts
         env:
@@ -101,4 +106,3 @@ jobs:
           OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
       - run: npx lhci autorun
-      
