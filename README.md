@@ -32,12 +32,12 @@ AI-powered travel planning app for the portfolio platform. Built with Next.js 16
 
 ## APIs
 
-| Service         | Usage                              | Cost     |
-| --------------- | ---------------------------------- | -------- |
-| OpenWeatherMap  | Live weather on destination pages  | Free     |
-| Unsplash        | Destination hero and card images   | Free     |
-| Anthropic       | AI itinerary streaming generation  | ~$1–3/mo |
-| OpenStreetMap   | Interactive maps via React Leaflet | Free     |
+| Service         | Usage                              |
+| --------------- | ---------------------------------- |
+| OpenWeatherMap  | Live weather on destination pages  |
+| Unsplash        | Destination hero and card images   |
+| Anthropic       | AI itinerary streaming generation  |
+| OpenStreetMap   | Interactive maps via React Leaflet |
 
 ## Getting Started
 
