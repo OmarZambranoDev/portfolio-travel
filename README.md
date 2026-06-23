@@ -153,77 +153,43 @@ npm run fetch-images -- tokyo paris
 | `/api/weather/[city]`      | GET    | Live weather, cached 30 min          |
 
 ## Project Structure
+```
 src/
-
 ├── app/
-
 │   ├── layout.tsx
-
 │   ├── page.tsx
-
 │   ├── api/
-
 │   │   ├── plan/route.ts
-
 │   │   └── weather/[city]/route.ts
-
 │   ├── destinations/
-
 │   │   ├── page.tsx
-
 │   │   └── [slug]/
-
 │   │       ├── page.tsx
-
 │   │       ├── loading.tsx
-
 │   │       └── error.tsx
-
 │   ├── plan/page.tsx
-
 │   ├── trips/
-
 │   │   ├── page.tsx
-
 │   │   └── [id]/page.tsx
-
 │   └── profile/page.tsx
-
 ├── components/
-
 │   ├── common/
-
 │   ├── destinations/
-
 │   ├── mobile/
-
 │   ├── planner/
-
 │   └── trips/
-
 ├── data/
-
 │   ├── destinations.ts
-
 │   ├── destinationImages.json
-
 │   └── mockWeather.ts
-
 ├── hooks/
-
 │   └── useIsMobile.ts
-
-├── lib/
-
 ├── store/
-
 │   └── tripsStore.ts
-
 ├── test/
-
 │   └── unit/
-
 └── types/
+```
 
 ## Scripts
 
