@@ -77,7 +77,7 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npx playwright@1.61.0 install --with-deps chromium
-      - run: npx playwright@1.61.0 test
+      - run: npx playwright@1.61.0 test --config=playwright.config.ts
         env:
           CI: true
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
