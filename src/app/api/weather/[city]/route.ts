@@ -22,6 +22,9 @@ export async function GET(_req: NextRequest, { params }: { params: Promise<{ cit
     ]);
 
     if (!currentRes.ok || !forecastRes.ok) {
+      const currentError = await currentRes.text();
+      console.error('OWM current status:', currentRes.status, currentError);
+      console.error('OWM forecast status:', forecastRes.status);
       return NextResponse.json({ error: 'Failed to fetch weather data' }, { status: 502 });
     }
 

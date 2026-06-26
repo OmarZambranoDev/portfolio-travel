@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   description: 'Discover destinations, plan itineraries with AI, and save your dream trips.',
   icons: {
-    icon: 'icon.svg',
+    icon: '/icon.svg',
   },
 };
 
